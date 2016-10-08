@@ -1,4 +1,4 @@
-package com.guitrilha.busroutes;
+package com.guitrilha.busroutes.view.impl;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -13,13 +13,27 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
-public class MainActivity extends AppCompatActivity
+import com.guitrilha.busroutes.R;
+import com.guitrilha.busroutes.presenter.contract.RoutesPresenter;
+import com.guitrilha.busroutes.presenter.impl.RoutesPresenterImpl;
+import com.guitrilha.busroutes.view.AbstractActivity;
+
+public class RoutesViewImpl extends AbstractActivity<RoutesPresenter>
         implements NavigationView.OnNavigationItemSelectedListener {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+    protected int getLayoutToInflate() {
+        return R.layout.activity_main;
+    }
+
+    @Override
+    protected Class<RoutesPresenter> getPresenterClazz() {
+        return RoutesPresenter.class;
+    }
+
+    @Override
+    protected void onLayoutInflate() {
+        super.onLayoutInflate();
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
