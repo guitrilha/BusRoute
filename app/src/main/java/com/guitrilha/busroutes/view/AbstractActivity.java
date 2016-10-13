@@ -1,6 +1,7 @@
 package com.guitrilha.busroutes.view;
 
 import android.os.Bundle;
+import android.support.annotation.CallSuper;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
@@ -26,7 +27,7 @@ public abstract class AbstractActivity<T extends Presenter> extends AppCompatAct
 
     private void callPresenterOnCreate(Bundle savedInstanceState) {
         Bundle extras = getIntent().getExtras();
-        if (extras != null){
+        if (extras == null) {
             extras = new Bundle();
         }
         mPresenter.onCreate(extras, savedInstanceState);
@@ -35,12 +36,12 @@ public abstract class AbstractActivity<T extends Presenter> extends AppCompatAct
     private void inflateLayout() {
         int layoutToInflate = getLayoutToInflate();
         setContentView(layoutToInflate);
-        onLayoutInflate();
+        onLayoutInflated();
     }
 
     protected abstract int getLayoutToInflate();
 
-    protected void onLayoutInflate() {
+    protected void onLayoutInflated() {
 
     }
 
@@ -54,13 +55,37 @@ public abstract class AbstractActivity<T extends Presenter> extends AppCompatAct
 
     }
 
+    @CallSuper
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        mPresenter.onSaveInstanceState(outState);
+    }
+
+    @CallSuper
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        mPresenter.onRestoreInstanceState(savedInstanceState);
+        mPresenter.onAfterStatedRestored();
+    }
+
     protected abstract Class<T> getPresenterClazz();
 
     private void setPresenter(T presenter) {
         mPresenter = presenter;
     }
 
-    public T getPresenter(){
+    public T getPresenter() {
         return mPresenter;
+    }
+
+    protected void setVisibleOrGone(int viewId, boolean visibleOrGone){
+        if(visibleOrGone){
+            findViewById(viewId).setVisibility(android.view.View.VISIBLE);
+        }else{
+            findViewById(viewId).setVisibility(android.view.View.GONE);
+        }
+
     }
 }

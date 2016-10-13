@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">BusRoutes</string>
+
+    <string name="title_activity_detail_route">Detalhe da Rota</string>
+    <string name="title_fragment_itinerary">Itinerário</string>
+    <string name="title_fragment_timetable">Horários</string>
+
+    <string name="label_find_routes">Use a barra de busca ou o mapa para encontrar rotas de ônibus!</string>
+    <string name="label_weekday">Dias úteis</string>
+    <string name="label_saturday">Sábado</string>
+    <string name="label_sunday">Domingo</string>
+
+    <string name="search_title">Buscar rotas</string>
+    <string name="search_hint">Nome da rua</string>
+
+
+    <string name="stop_list_sequence">%1$d -</string>
+    <string name="route_lastModifiedDate">Ultima modificação: %1$s</string>
+
+    <string name="error_no_routes_found">Nenhuma rota encontrada para: %1$s</string>
+    <string name="error_no_timetable">Não foram encontrados os horários para esta rota.</string>
+    <string name="error_no_stops_found">Nenhuma parada encontrada para essa rota.</string>
+    <string name="error_no_internet">Sem conexão com a internet.</string>
+    <string name="error_no_departures_on_weekday">Não existem saídas nos dias úteis.</string>
+    <string name="error_no_departures_on_saturday">Não existem saídas nos sábados.</string>
+    <string name="error_no_departures_on_sunday">Não existem saídas nos domingos.</string>
+    <string name="error_unexpected">O aplicativo encontrou um erro inesperado. Por favor, tente novamente.</string>
+
+</resources>

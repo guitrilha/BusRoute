@@ -20,4 +20,6 @@ public interface Presenter<T extends View> {
     void onSaveInstanceState(Bundle outState);
 
     void onRestoreInstanceState(Bundle savedInstanceState);
+
+    void onAfterStatedRestored();
 }

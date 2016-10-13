@@ -50,4 +50,8 @@ public abstract class AbstractPresenter<T extends View> implements Presenter<T> 
 
     }
 
+    @Override
+    public void onAfterStatedRestored() {
+
+    }
 }

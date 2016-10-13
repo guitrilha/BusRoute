@@ -8,4 +8,8 @@ import com.guitrilha.busroutes.view.contract.RoutesView;
  */
 
 public interface RoutesPresenter extends Presenter<RoutesView> {
+
+    public static final String EXTRA_STREET_NAME = "street_name";
+
+    void onSearchRoute(String query);
 }

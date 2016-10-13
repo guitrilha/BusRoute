@@ -1,6 +1,7 @@
 package com.guitrilha.busroutes.view;
 
 import android.os.Bundle;
+import android.support.annotation.CallSuper;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -35,25 +36,25 @@ public abstract class AbstractFragment<T extends Presenter> extends Fragment imp
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        onLayoutInflate();
+        onLayoutInflated();
         callPresenterOnCreate(savedInstanceState);
-        if(savedInstanceState!=null){
+        if (savedInstanceState != null) {
             mPresenter.onRestoreInstanceState(savedInstanceState);
+            mPresenter.onAfterStatedRestored();
         }
     }
 
-    protected void onLayoutInflate() {
+    protected void onLayoutInflated() {
 
     }
 
     private void callPresenterOnCreate(Bundle savedInstanceState) {
         Bundle extras = getArguments();
-        if (extras != null) {
+        if (extras == null) {
             extras = new Bundle();
         }
         mPresenter.onCreate(extras, savedInstanceState);
     }
-
 
 
     private void injectPresenter() {
@@ -66,6 +67,14 @@ public abstract class AbstractFragment<T extends Presenter> extends Fragment imp
 
     }
 
+    @CallSuper
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        if (mPresenter != null)
+            mPresenter.onSaveInstanceState(outState);
+    }
+
     protected abstract Class<T> getPresenterClazz();
 
     private void setPresenter(T presenter) {
@@ -74,5 +83,14 @@ public abstract class AbstractFragment<T extends Presenter> extends Fragment imp
 
     public T getPresenter() {
         return mPresenter;
+    }
+
+    protected void setVisibleOrGone(int viewId, boolean visibleOrGone){
+        if(visibleOrGone){
+            getActivity().findViewById(viewId).setVisibility(android.view.View.VISIBLE);
+        }else{
+            getActivity().findViewById(viewId).setVisibility(android.view.View.GONE);
+        }
+
     }
 }

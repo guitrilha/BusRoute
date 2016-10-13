@@ -1,8 +1,37 @@
 <resources>
     <string name="app_name">BusRoutes</string>
 
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="title_activity_detail_route">Route Detail</string>
+    <string name="title_fragment_itinerary">Itinerary</string>
+    <string name="title_fragment_timetable">Timetable</string>
 
-    <string name="action_settings">Settings</string>
+    <string name="label_find_routes">Use the search bar or the map to find bus routes!</string>
+    <string name="label_weekday">Weekday</string>
+    <string name="label_saturday">Saturday</string>
+    <string name="label_sunday">Sunday</string>
+
+    <string name="search_title">Search routes</string>
+    <string name="search_hint">Street name</string>
+
+
+    <string name="stop_list_sequence">%1$d -</string>
+    <string name="route_lastModifiedDate">Last modified date: %1$s</string>
+
+    <string name="error_no_routes_found">Not found routes for: %1$s</string>
+    <string name="error_no_stops_found">Not found stops for this route.</string>
+    <string name="error_no_timetable">Not found any timetable for this route.</string>
+    <string name="error_no_internet">No internet connectivity detected.</string>
+    <string name="error_no_departures_on_weekday">There are no departures on weekdays.</string>
+    <string name="error_no_departures_on_saturday">There are no departures on Saturdays.</string>
+    <string name="error_no_departures_on_sunday">There are no departures on Sundays.</string>
+    <string name="error_unexpected">The app encountered an unexpected error. Please try again later.</string>
+
+    <string name="tools_time">06:18</string>
+    <string name="tools_route_long_name">AGRONÔMICA VIA GAMA D\'EÇA</string>
+    <string name="tools_route_last_modified_date">Last modified date: 26/10/16</string>
+    <string name="tools_route_short_name">131</string>
+    <string name="tools_stop_sequence">1 -</string>
+    <string name="tools_stop_name">RUA PROCURADOR ABELARDO GOMES</string>
+    <string name="title_activity_maps">Map</string>
+
 </resources>
