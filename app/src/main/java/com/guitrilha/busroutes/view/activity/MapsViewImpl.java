@@ -2,7 +2,9 @@ package com.guitrilha.busroutes.view.activity;
 
 import android.content.Intent;
 import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.view.View;
+import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -62,6 +64,11 @@ public class MapsViewImpl extends AbstractActivity<MapsPresenter> implements Map
     public void onMapClick(LatLng latLng) {
         getPresenter().onMapClicked(latLng);
         showMarker(latLng);
+    }
+
+    @Override
+    public void showNoInternetConnectivity(){
+        Toast.makeText(MapsViewImpl.this, R.string.error_no_internet, Toast.LENGTH_SHORT).show();
     }
 
     @Override

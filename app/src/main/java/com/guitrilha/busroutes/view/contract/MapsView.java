@@ -10,7 +10,10 @@ import com.guitrilha.busroutes.view.View;
 
 public interface MapsView extends View<MapsPresenter> {
 
+    void showNoInternetConnectivity();
+
     void showMarker(LatLng position);
 
     void searchRoutesForStreet(String streetName);
+
 }

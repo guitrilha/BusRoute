@@ -1,7 +1,10 @@
 package com.guitrilha.busroutes.presenter.impl;
 
+import android.content.Context;
 import android.location.Address;
 import android.location.Geocoder;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
 
@@ -43,7 +46,14 @@ public class MapsPresenterImpl extends AbstractPresenter<MapsView> implements Ma
 
     @Override
     public void onSearchClicked(LatLng position) {
-        new FindStreetLocation().execute(position);
+        Context context = getApplicationContext();
+        ConnectivityManager connMgr = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
+        if (networkInfo != null && networkInfo.isConnected()) {
+            new FindStreetLocation().execute(position);
+        }else{
+            getView().showNoInternetConnectivity();
+        }
     }
 
     @Override
