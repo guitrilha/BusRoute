@@ -19,9 +19,9 @@ public class DateFormatter {
     private SimpleDateFormat simpleDateFormat;
     private Context mContext;
 
-    public DateFormatter(Context mContext) {
+    public DateFormatter(Context context) {
         super();
-        mContext = mContext;
+        mContext = context;
         defineFormatter();
     }
 
