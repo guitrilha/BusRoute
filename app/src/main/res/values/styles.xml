@@ -17,4 +17,14 @@
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
+    <style name="ViewSeparator">
+        <item name="android:background">@color/color_gray_e6e6e6</item>
+        <item name="android:layout_marginBottom">4dp</item>
+    </style>
+
+    <style name="TextviewSubtitle">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/colorPrimary</item>
+    </style>
+
 </resources>

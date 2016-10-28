@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ProgressBar
+        android:id="@+id/progressBar_timetable"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="gone" />
+
+    <ScrollView
+        android:id="@+id/layout_timetables"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="visible">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="@dimen/activity_vertical_margin"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin"
+            android:paddingTop="@dimen/activity_vertical_margin">
+
+            <RelativeLayout
+                android:id="@+id/layout_weekday"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/textview_weekday"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="4dp"
+                    android:text="@string/label_weekday"
+                    android:textAppearance="@style/TextviewSubtitle" />
+
+                <View
+                    android:id="@+id/separator_weekday_textview"
+                    style="@style/ViewSeparator"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_below="@id/textview_weekday" />
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/weekday_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/separator_weekday_textview"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="8dp"
+                    android:visibility="gone"
+                    app:layoutManager="android.support.v7.widget.GridLayoutManager"
+                    app:spanCount="@integer/timetable_span_count" />
+
+                <TextView
+                    android:id="@+id/textview_no_departure_weekday"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/separator_weekday_textview"
+                    android:layout_centerHorizontal="true"
+                    android:layout_margin="16dp"
+                    android:layout_marginBottom="8dp"
+                    android:background="@drawable/background_main_info"
+                    android:drawableLeft="@drawable/ic_warning"
+                    android:drawablePadding="8dp"
+                    android:gravity="center_vertical"
+                    android:padding="16dp"
+                    android:text="@string/error_no_departures_on_weekday"
+                    android:visibility="gone" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/layout_saturday"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/layout_weekday">
+
+                <TextView
+                    android:id="@+id/textview_saturday"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="4dp"
+                    android:text="@string/label_saturday"
+                    android:textAppearance="@style/TextviewSubtitle" />
+
+                <View
+                    android:id="@+id/separator_saturday_textview"
+                    style="@style/ViewSeparator"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_below="@id/textview_saturday" />
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/saturday_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/separator_saturday_textview"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="8dp"
+                    android:visibility="gone"
+                    app:layoutManager="android.support.v7.widget.GridLayoutManager"
+                    app:spanCount="@integer/timetable_span_count" />
+
+                <TextView
+                    android:id="@+id/textview_no_departure_saturday"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/separator_saturday_textview"
+                    android:layout_centerHorizontal="true"
+                    android:layout_margin="16dp"
+                    android:layout_marginBottom="8dp"
+                    android:background="@drawable/background_main_info"
+                    android:drawableLeft="@drawable/ic_warning"
+                    android:drawablePadding="8dp"
+                    android:gravity="center_vertical"
+                    android:padding="16dp"
+                    android:text="@string/error_no_departures_on_saturday"
+                    android:visibility="gone" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/layout_sunday"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/layout_saturday">
+
+                <TextView
+                    android:id="@+id/textview_sunday"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="4dp"
+                    android:text="@string/label_sunday"
+                    android:textAppearance="@style/TextviewSubtitle" />
+
+                <View
+                    android:id="@+id/separator_sunday_textview"
+                    style="@style/ViewSeparator"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_below="@id/textview_sunday" />
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/sunday_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/separator_sunday_textview"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="4dp"
+                    android:visibility="gone"
+                    app:layoutManager="android.support.v7.widget.GridLayoutManager"
+                    app:spanCount="@integer/timetable_span_count" />
+
+                <TextView
+                    android:id="@+id/textview_no_departure_sunday"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/separator_sunday_textview"
+                    android:layout_centerHorizontal="true"
+                    android:layout_margin="16dp"
+                    android:layout_marginBottom="4dp"
+                    android:background="@drawable/background_main_info"
+                    android:drawableLeft="@drawable/ic_warning"
+                    android:drawablePadding="8dp"
+                    android:gravity="center_vertical"
+                    android:padding="16dp"
+                    android:text="@string/error_no_departures_on_sunday"
+                    android:visibility="gone" />
+            </RelativeLayout>
+        </RelativeLayout>
+    </ScrollView>
+
+    <TextView
+        android:id="@+id/textview_error_timetable"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_margin="16dp"
+        android:background="@drawable/background_main_info"
+        android:drawableLeft="@drawable/ic_error_outline"
+        android:drawablePadding="8dp"
+        android:gravity="center_vertical"
+        android:padding="16dp"
+        android:visibility="gone"
+        tools:text="@string/error_no_timetable" />
+
+</RelativeLayout>
